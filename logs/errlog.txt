@@ -1,0 +1,57 @@
+ReferenceError	path is not definedError	Failed to lookup view "/home/vaibhav/Desktop/server-side/routes/views/index.ejs" in views directory "/home/vaibhav/Desktop/server-side/views"SyntaxError	Expected ',' or '}' after property value in JSON at position 20ReferenceError	output is not definedReferenceError	langauge is not definedReferenceError	langauge is not definedReferenceError	/home/vaibhav/Desktop/server-side/views/oc.ejs:42
+    40|         <div class="logo">
+    41|           <h1>OnlineWebCompiler</h1>
+ >> 42|           <p><%= data.language %> compiler</p>
+    43|         </div>
+    44|         <div class="admin-section">
+    45|           <a class="btn login" href="#" target="_blank">Login</a>
+
+data is not definedReferenceError	/home/vaibhav/Desktop/server-side/views/oc.ejs:42
+    40|         <div class="logo">
+    41|           <h1>OnlineWebCompiler</h1>
+ >> 42|           <p><%= data.language %> compiler</p>
+    43|         </div>
+    44|         <div class="admin-section">
+    45|           <a class="btn login" href="#" target="_blank">Login</a>
+
+data is not definedReferenceError	/home/vaibhav/Desktop/server-side/views/oc.ejs:42
+    40|         <div class="logo">
+    41|           <h1>OnlineWebCompiler</h1>
+ >> 42|           <p><%= data.language %> compiler</p>
+    43|         </div>
+    44|         <div class="admin-section">
+    45|           <a class="btn login" href="#" target="_blank">Login</a>
+
+data is not definedReferenceError	/home/vaibhav/Desktop/server-side/views/oc.ejs:42
+    40|         <div class="logo">
+    41|           <h1>OnlineWebCompiler</h1>
+ >> 42|           <p><%= data.languageName %> compiler</p>
+    43|         </div>
+    44|         <div class="admin-section">
+    45|           <a class="btn login" href="#" target="_blank">Login</a>
+
+data is not definedReferenceError	/home/vaibhav/Desktop/server-side/views/oc.ejs:42
+    40|         <div class="logo">
+    41|           <h1>OnlineWebCompiler</h1>
+ >> 42|           <p><%= data.languageName %> compiler</p>
+    43|         </div>
+    44|         <div class="admin-section">
+    45|           <a class="btn login" href="#" target="_blank">Login</a>
+
+data is not definedReferenceError	/home/vaibhav/Desktop/server-side/views/oc.ejs:42
+    40|         <div class="logo">
+    41|           <h1>OnlineWebCompiler</h1>
+ >> 42|           <p><%= data.languageName %> compiler</p>
+    43|         </div>
+    44|         <div class="admin-section">
+    45|           <a class="btn login" href="#" target="_blank">Login</a>
+
+data is not definedReferenceError	/home/vaibhav/Desktop/server-side/views/oc.ejs:98
+    96|     <header class="output-header mobile-headers">Output</header>
+    97| 
+ >> 98|     <section class="filename"><h2>main<%=data.ext%></h2></section>
+    99| 
+    100|     <section class="editor-section editor-typography" id="editor"></section>
+    101| 
+
+data is not defined
