@@ -83,11 +83,14 @@ document.addEventListener("DOMContentLoaded", () => {
     output.setValue("");
   };
 
-  const runCode = async (editor, language, output) => {
-    const code = editor.getValue();
+  const runCode = async (editor, language, output, input) => {
+    const code = editor.getValue() || "";
+    const inputValue = input.getValue() || "";
+
     const data = {
       code: code,
       language: language,
+      input: inputValue,
     };
     const response = await fetch("/api/run", {
       method: "POST",
@@ -97,9 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       body: JSON.stringify(data),
     });
-
+    const someValue = "notheing";
     const getOutput = await response.json();
-    console.log(getOutput);
+    console.log(typeof getOutput.output);
+    console.log(someValue);
     output.setValue(getOutput.output);
   };
 
@@ -159,12 +163,12 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     // console.log(e.target);
 
-    runCode(editor, getSpitedValue(), output);
+    runCode(editor, getSpitedValue(), output, input);
   });
   runMButton.addEventListener("click", (e) => {
     e.preventDefault();
 
-    runCode(editor, getSpitedValue(), output);
+    runCode(editor, getSpitedValue(), output, input);
   });
 
   saveButton.addEventListener("click", (e) => {
