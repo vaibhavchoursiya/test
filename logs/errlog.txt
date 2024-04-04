@@ -54,4 +54,4 @@ data is not definedReferenceError	/home/vaibhav/Desktop/server-side/views/oc.ejs
     100|     <section class="editor-section editor-typography" id="editor"></section>
     101| 
 
-data is not definedTypeError	docker.createDockerContainer is not a functionReferenceError	exec is not definedTypeError	The "path" argument must be of type string. Received an instance of PromiseTypeError	The "path" argument must be of type string. Received an instance of PromiseTypeError	input.join is not a functionError	Not allowed by CORS
+data is not definedTypeError	docker.createDockerContainer is not a functionReferenceError	exec is not definedTypeError	The "path" argument must be of type string. Received an instance of PromiseTypeError	The "path" argument must be of type string. Received an instance of PromiseTypeError	input.join is not a functionError	Not allowed by CORSSyntaxError	Expected double-quoted property name in JSON at position 116SyntaxError	Expected double-quoted property name in JSON at position 37SyntaxError	Expected ',' or '}' after property value in JSON at position 37

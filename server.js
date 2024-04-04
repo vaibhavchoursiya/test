@@ -5,7 +5,11 @@ const { logger } = require("./middleware/logEvent");
 const app = express();
 const cors = require("cors");
 const corsOptions = require("./config/corsOptions");
-const PORT = process.env.PORT || 3500;
+const connectDB = require("./config/connectdb.js");
+const dotenv = require("dotenv");
+dotenv.config();
+const PORT = process.env.PORT;
+const DATABASE_URL = process.env.DATABASE_URL;
 
 /** Middlewares */
 /* 
@@ -24,8 +28,12 @@ app.use(express.json());
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
+// DataBase
+connectDB(DATABASE_URL);
+
 /* Routes Handler */
 app.use("/", require(path.join(__dirname, "routes", "router.js")));
+app.use("/auth/user", require(path.join(__dirname, "routes", "userroutes.js")));
 app.use("/api", require(path.join(__dirname, "routes", "api", "runapi.js")));
 
 app.use(errorHandler);
