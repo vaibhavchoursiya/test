@@ -24,7 +24,7 @@ router.get("/:language", (req, res) => {
   res.render("oc.ejs", data);
 });
 
-router.get("/playground", (req, res) => {
+router.get("/hcj/playground", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "views", "playground.html"));
 });
 

@@ -53,16 +53,15 @@ a {
 .tab-button {
   font-size: 0.9em;
   padding: 0.35em 1.4em;
-  border-radius: 3px;
   border: 2px solid var(--light);
+  margin: 0 0.05em;
 }
 .theme-button {
   background-color: transparent;
 }
 
 .selectedTab {
-  background-color: #2578f5;
-  border-radius: 4px;
+  background-color: #407a58;
 }
 /* css varibales */
 :root {
@@ -173,6 +172,16 @@ body {
       "he he"
       "nv nv"
       "ed ot";
+  }
+  .tab {
+    /* display: none; */
+  }
+  .navbar {
+    /* display: flex;
+    justify-content: flex-end; */
+    border-left: none;
+    border-bottom: none;
+    border-right: none;
   }
 }
 
