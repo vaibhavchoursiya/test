@@ -21,7 +21,8 @@ const DATABASE_URL = process.env.DATABASE_URL;
 6) error handler
 */
 app.use(logger);
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
