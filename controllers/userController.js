@@ -62,7 +62,7 @@ class UserController {
             // Jwt Token
             const savedUser = await UserModel.findOne({ email: email });
             const token = createToken(savedUser._id);
-            res.status(201).json({
+            res.json({
               status: "Success",
               message: " New User is Register",
               token: token,
@@ -71,14 +71,14 @@ class UserController {
             // res.redirect("/user/login");
           } catch (error) {
             console.log(error);
-            res.send({
+            res.json({
               status: "Failed",
               message: "Not Able to Register User",
             });
           }
         } else {
           /* Password dont Match */
-          res.send({
+          res.json({
             status: "Failed",
             message: "Password and Confirm Password do not Match",
           });
