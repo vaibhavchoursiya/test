@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OnlineCompiler</title>
+    <link rel="stylesheet" href="/css/playground.css" />
+  </head>
+  <body>
+    <header class="header">
+      <section class="header__section">
+        <div class="logo">
+          <h1>OnlineWebCompiler</h1>
+          <p>playground</p>
+        </div>
+        <div class="admin-section">
+          <a class="btn login" href="/user/login" target="_blank">Login</a>
+          <a class="btn signup" href="/user/signup" target="_blank">SignUp</a>
+        </div>
+        <div class="currentuser-section no-display">
+          <a class="btn username" href="/user/admin"></a>
+          <a class="btn logout" href="#">Logout</a>
+        </div>
+      </section>
+    </header>
+
+    <nav class="navbar">
+      <section class="tab">
+        <a
+          class="tab-button selectedTab"
+          id="html-tab"
+          value="html-editor"
+          href="#"
+          >Html</a
+        >
+        <a class="tab-button" id="css-tab" value="css-editor" href="#">Css</a>
+        <a class="tab-button" id="js-tab" value="js-editor" href="#">Js</a>
+      </section>
+      <section class="button-section">
+        <select
+          name="themes"
+          id=""
+          class="btn theme-button theme-dropdown"
+        ></select>
+      </section>
+    </nav>
+
+    <section
+      class="editor-section html-editor editor-typography current-editor"
+      id="editor-html"
+    ></section>
+    <section
+      class="editor-section css-editor editor-typography"
+      id="editor-css"
+    ></section>
+    <section
+      class="editor-section js-editor editor-typography"
+      id="editor-js"
+    ></section>
+
+    <iframe
+      sandbox="allow-same-origin"
+      id="output"
+      class="output-window"
+      frameborder="0"
+    ></iframe>
+  </body>
+
+  <script src="/lib/ace.js"></script>
+
+  <script src="/lib/theme-dracula.js"></script>
+  <script src="/lib/theme-terminal.js"></script>
+  <script src="/lib/theme-merbivore.js"></script>
+  <script src="/lib/theme-tomorrow.js"></script>
+  <script src="/lib/theme-xcode.js"></script>
+
+  <script src="/lib/mode-html.js"></script>
+  <script src="/lib/mode-css.js"></script>
+  <script src="/lib/mode-javascript.js"></script>
+
+  <script src="/js/playground.js"></script>
+</html>

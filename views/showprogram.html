@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OnlineCompiler</title>
-    <link rel="stylesheet" href="./css/oc.css" />
+    <link rel="stylesheet" href="/css/showprogram.css" />
   </head>
   <body>
     <header class="header">
@@ -39,7 +39,6 @@
       <section class="header__section">
         <div class="logo">
           <h1>OnlineWebCompiler</h1>
-          <p><%= languageName %> compiler</p>
         </div>
         <div class="admin-section">
           <a class="btn login" href="/user/login" target="_blank">Login</a>
@@ -80,29 +79,30 @@
 
     <aside class="sidebar not-show">
       <a href="/java" target="_blank"
-        ><img src="./images/icons8-java-50.png" alt=""
+        ><img src="/images/icons8-java-50.png" alt=""
       /></a>
       <a href="/python" target="_blank"
-        ><img src="./images/icons8-python-50.png" alt=""
+        ><img src="/images/icons8-python-50.png" alt=""
       /></a>
       <a href="/c" target="_blank"
-        ><img src="./images/icons8-c-50.png" alt=""
+        ><img src="/images/icons8-c-50.png" alt=""
       /></a>
       <a href="/playground" target="_blank"
-        ><img src="./images/icons8-html-50.png" alt=""
+        ><img src="/images/icons8-html-50.png" alt=""
       /></a>
+
       <a href="/cpp" target="_blank"
-        ><img src="./images/icons8-c++-48.png" alt=""
+        ><img src="/images/icons8-c++-48.png" alt=""
       /></a>
       <a href="/ruby" target="_blank"
-        ><img src="./images/icons8-ruby-50.png" alt=""
+        ><img src="/images/icons8-ruby-50.png" alt=""
       /></a>
     </aside>
 
     <header class="input-header mobile-headers">Input</header>
     <header class="output-header mobile-headers">Output</header>
 
-    <section class="filename"><h2>main<%=ext%></h2></section>
+    <section class="filename"><h2>filename</h2></section>
 
     <section class="editor-section editor-typography" id="editor"></section>
 
@@ -114,18 +114,18 @@
     <section class="output-window editor-typography" id="output"></section>
   </body>
 
-  <script src="./lib/ace.js"></script>
+  <script src="/lib/ace.js"></script>
 
-  <script src="./lib/theme-dracula.js"></script>
-  <script src="./lib/theme-terminal.js"></script>
-  <script src="./lib/theme-merbivore.js"></script>
-  <script src="./lib/theme-tomorrow.js"></script>
-  <script src="./lib/theme-xcode.js"></script>
+  <script src="/lib/theme-dracula.js"></script>
+  <script src="/lib/theme-terminal.js"></script>
+  <script src="/lib/theme-merbivore.js"></script>
+  <script src="/lib/theme-tomorrow.js"></script>
+  <script src="/lib/theme-xcode.js"></script>
 
-  <script src="./lib/mode-python.js"></script>
-  <script src="./lib/mode-c_cpp.js"></script>
-  <script src="./lib/mode-java.js"></script>
-  <script src="./lib/mode-ruby.js"></script>
+  <script src="/lib/mode-python.js"></script>
+  <script src="/lib/mode-c_cpp.js"></script>
+  <script src="/lib/mode-java.js"></script>
+  <script src="/lib/mode-ruby.js"></script>
 
-  <script src="./js/oc.js"></script>
+  <script src="/js/showprogram.js"></script>
 </html>

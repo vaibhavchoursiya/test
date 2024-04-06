@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 50%;
+}
+
+.error {
+  display: none;
+  font-size: 70%;
+  color: brown;
+}
+.not-display-error {
+  display: none;
+}
+
+.display-error {
+  display: block;
+}

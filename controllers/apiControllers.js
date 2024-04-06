@@ -1,4 +1,6 @@
 const path = require("path");
+const UserProgramModel = require("../models/userProgram");
+
 const fsPromises = require("fs").promises;
 const { getExt, removeRandomFile } = require(path.join(
   __dirname,
@@ -355,4 +357,44 @@ const getCode = (req, res) => {
   // console.log(`this is output:${output}`);
 };
 
-module.exports = { getCode };
+const saveCode = async (req, res) => {
+  const { program_name, language, code, lastOutput } = req.body;
+  const listofPrograms = await UserProgramModel.find({
+    username: req.user.username,
+  });
+  if (listenContainer.length < 15) {
+    if ((program_name, language && code && lastOutput)) {
+      try {
+        const username = req.user.username;
+        const programDoc = await UserProgramModel.findOne({
+          program_name: program_name,
+          username: username,
+        });
+        if (programDoc) {
+          programDoc.code = code;
+          programDoc.lastOutput = lastOutput;
+          await programDoc.save();
+        } else {
+          const userProgramDoc = await UserProgramModel({
+            program_name: program_name,
+            username: username,
+            language: language,
+            code: code,
+            lastOutput: lastOutput,
+          });
+
+          await userProgramDoc.save();
+        }
+        res.send({ status: "SuccessFul", message: "User code is saved" });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      res.send({ status: "Failed", message: "All parameter are required." });
+    }
+  } else {
+    res.send({ status: "Failed", message: "Your cannot save more files." });
+  }
+};
+
+module.exports = { getCode, saveCode };

@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Tac+One&display=swap");
+
+/* Reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 100%;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+
+.editor-typography {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* utility class */
+.not-show {
+  display: none;
+}
+
+.btn {
+  margin: 5px;
+  font-size: 0.9em;
+  padding: 0.35em 1.4em;
+  border-radius: 3px;
+  border: 2px solid var(--light);
+}
+.tab-button {
+  font-size: 0.9em;
+  padding: 0.35em 1.4em;
+  border-radius: 3px;
+  border: 2px solid var(--light);
+}
+.theme-button {
+  background-color: transparent;
+}
+
+.selectedTab {
+  background-color: #2578f5;
+  border-radius: 4px;
+}
+/* css varibales */
+:root {
+  /* colors */
+  /* --dark: #021102;*/
+  /* --light: #eeeeee; */
+  /* --aside-color: rgb(74, 74, 255); */
+  --aside-color: #000;
+  --ff: "Tac One", sans-serif;
+
+  --dark: #31473a;
+  --light: #edf4f2;
+  --border: 2px solid var(--light);
+}
+
+body {
+  min-height: 100vh;
+  color: var(--light);
+  background-color: var(--dark);
+  /* font-size: calc(9px + 0.6vw); */
+  font-family: var(--ff);
+
+  font-weight: bolder;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 10vh 7vh 1fr 1.2fr;
+  grid-template-areas:
+    "he"
+    "nv"
+    "ed"
+    "ot";
+  font-size: calc(1vw + 1vh);
+}
+
+.header {
+  grid-area: he;
+  background-color: #f52549;
+}
+.header__section {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+}
+.admin-section,
+.currentuser-section {
+  display: flex;
+}
+.no-display {
+  display: none;
+}
+
+.navbar {
+  grid-area: nv;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.5em;
+  border: var(--border);
+}
+
+.tab {
+  display: flex;
+}
+.button-section {
+  display: flex;
+}
+
+.editor-section {
+  grid-area: ed;
+}
+
+.editor-section {
+  display: none;
+}
+.html-editor {
+}
+.css-editor {
+}
+.js-editor {
+}
+.current-editor {
+  display: block;
+}
+
+.output-window {
+  grid-area: ot;
+  width: 100%;
+  height: 100%;
+  background-color: var(--light);
+}
+
+@media screen and (min-width: 48em) {
+  body {
+    min-height: 100vh;
+    color: var(--light);
+    background-color: var(--dark);
+    /* font-size: calc(9px + 0.6vw); */
+    font-family: var(--ff);
+    font-size: calc(1vw + 1vh);
+
+    font-weight: bolder;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 13vh 9vh 1fr;
+    grid-template-areas:
+      "he he"
+      "nv nv"
+      "ed ot";
+  }
+}
+
+/* Media query */
+/* @media screen and (min-width: 48em) {
+  body {
+    grid-template-columns: 5vw 9vw 1fr 1fr;
+    grid-template-rows: 15vh 7.5vh 0.7fr 1fr;
+    grid-template-areas:
+      "he he he he"
+      "as fl nl nr"
+      "as ed ed in"
+      "as ed ed ot";
+    font-size: calc(1vw + 1vh);
+  }
+
+  .not-show {
+    display: block;
+  }
+  .mobile-navbar,
+  .mobile-headers,
+  .header__mobile-menu {
+    display: none;
+  }
+
+  .header {
+    grid-area: he;
+  }
+
+  .navbar-right {
+    grid-area: nr;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1vw;
+    border-left: var(--border);
+  }
+
+  .navbar-left {
+    grid-area: nl;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+    border-bottom: var(--border);
+  }
+
+  .filename {
+    font-size: 0.6em;
+  }
+
+  .sidebar {
+    grid-area: as;
+    background-color: var(--aside-color);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark);
+    align-items: center;
+    border: var(--border);
+    border-right: 2px solid var(--light);
+  }
+  .sidebar a {
+    width: 70%;
+
+    margin: 1vh 0;
+    background-color: var(--light);
+    border: var(--border);
+    border-radius: 5px;
+  }
+
+  .editor-section {
+    grid-area: ed;
+  }
+
+  .input-section {
+    grid-area: in;
+    border-left: var(--border);
+  }
+
+  .output-window {
+    grid-area: ot;
+    border-left: var(--border);
+    border-top: var(--border);
+  }
+} */

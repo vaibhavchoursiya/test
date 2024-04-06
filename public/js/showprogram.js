@@ -1,6 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const editor = ace.edit("editor");
+  const output = ace.edit("output");
+  const input = ace.edit("input-editor");
   let getOC_LT = "";
+  let languageValue = "";
+  let codeValue = "";
+  let outputValue = "";
+  let programID = "";
+
+  var url = window.location.href;
+
+  // Extract the id from the URL
+  var id = url.substring(url.lastIndexOf("/") + 1);
+  programID = id;
+
   getOC_LT = localStorage.getItem("oc_lt");
+
+  const getCodeFromId = async (id) => {
+    const response = await fetch("/auth/user/program", {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${getOC_LT}`,
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify({ programID: id }),
+    });
+    const data = await response.json();
+    console.log(data);
+    languageValue = data.language;
+    codeValue = data.code;
+    outputValue = data.lastOutput;
+    editor.setValue(codeValue);
+    if (languageValue === "c" || languageValue === "cpp") {
+      languageValue = "c_cpp";
+    }
+    editor.session.setMode(`ace/mode/${languageValue}`);
+  };
 
   const getCurrentUser = async (getOC_LT) => {
     const adminSection = document.querySelector(".admin-section");
@@ -35,57 +71,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
   getCurrentUser(getOC_LT);
-
-  const getSpitedValue = () => {
-    const para = document.querySelector(".logo > p");
-    let list = para.innerText;
-    language = list.split(" ");
-    console.log(language);
-    return language[0].toLowerCase();
-  };
+  getCodeFromId(programID);
 
   /** change the language for editor */
   const setEditor = () => {
     editor.setTheme("ace/theme/dracula");
-    const langaugeName = getSpitedValue();
-
-    switch (langaugeName) {
-      case "c":
-        editor.session.setMode("ace/mode/c_cpp");
-        editor.setValue(`// Write Your ${langaugeName} Program Here!`, -1);
-
-        break;
-      case "cpp":
-        editor.session.setMode("ace/mode/c_cpp");
-        editor.setValue(`// Write Your ${langaugeName} Program Here!`, -1);
-
-        break;
-      case "java":
-        editor.session.setMode("ace/mode/java");
-        editor.setValue(`// Write Your ${langaugeName} Program Here!`, -1);
-
-        break;
-      case "ruby":
-        editor.session.setMode("ace/mode/ruby");
-        editor.setValue(`# Write Your ${langaugeName} Program Here!`, -1);
-
-        break;
-      case "python":
-        editor.session.setMode("ace/mode/python");
-        editor.setValue(`# Write Your ${langaugeName} Program Here!`, -1);
-
-        break;
-      default:
-        console.log("None of the above");
-        break;
-    }
 
     editor.getSession().setUseWrapMode(true);
   };
 
   const setOutputEditor = () => {
     output.setTheme("ace/theme/terminal");
-    // output.session.setMode("ace/mode/plain-text");
+    output.setValue(outputValue);
     output.renderer.setOption("showGutter", false);
     output.getSession().setUseWrapMode(true);
     output.setReadOnly(true);
@@ -204,14 +201,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const signUpButton = document.querySelector(".signup");
   const logoutButton = document.querySelector(".logout");
 
-  const editor = ace.edit("editor");
-  const output = ace.edit("output");
-  const input = ace.edit("input-editor");
-
   writeOptions(selectElementDesktop);
   writeOptions(selectElement);
 
   setEditor();
+
   setOutputEditor();
   setInputEditor();
 
@@ -243,22 +237,23 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     // console.log(e.target);
 
-    runCode(editor, getSpitedValue(), output, input);
+    runCode(editor, languageValue, output, input);
   });
   runMButton.addEventListener("click", (e) => {
     e.preventDefault();
 
-    runCode(editor, getSpitedValue(), output, input);
+    runCode(editor, languageValue, output, input);
   });
 
   saveButton.addEventListener("click", (e) => {
     e.preventDefault();
 
-    saveCode(getSpitedValue(), editor, output);
+    saveCode(languageValue, editor, output);
     console.log(e.target);
   });
   saveMButton.addEventListener("click", (e) => {
     e.preventDefault();
+    saveCode(languageValue, editor, output);
     console.log(e.target);
   });
 
@@ -267,7 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Clear all data stored in localStorage
     localStorage.removeItem("oc_lt");
     // Refresh the window
-    window.location.reload();
+    window.location.href = "/";
   });
 });
 // export { editor };

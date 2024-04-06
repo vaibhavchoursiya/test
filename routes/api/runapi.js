@@ -1,9 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const { getCode } = require("../../controllers/apiControllers");
+const { getCode, saveCode } = require("../../controllers/apiControllers");
+const authChecker = require("../../middleware/auth_middleware");
+
+//Router Level MiddleWare
+router.post("/save", authChecker);
 
 router.post("/run", getCode);
 
-router.post("/save", (req, res) => {});
+router.post("/save", saveCode);
 
 module.exports = router;
