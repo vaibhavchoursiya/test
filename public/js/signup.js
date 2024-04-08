@@ -37,8 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const getData = await response.json();
 
     validateUsernameAndEmail(getData);
-
-    console.log(getData);
   };
 
   const validateForm = (data) => {
